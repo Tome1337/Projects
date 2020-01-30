@@ -65,24 +65,21 @@ span.dot{
   font-size: 1em;
 }
 
-.searchbar{
+.search{
   display:flex;
   flex-direction:row;
   width:70%;
   padding:2.35em;
+  margin-left: 0.5em;
 }
 
 
 
 .searchbar {
-    float: right;
     background-color: transparent;
     color: white;
-    padding: 6px 10px;
-    width:100%;
+    padding: 0.4em 0.625em;
     border: none;
-    margin-top: 1px;
-    margin-right: 8px;
     font-family: inherit;
     font-size: 1em;
     font-weight: bold;
@@ -97,7 +94,6 @@ span.dot{
 }
 
 .searchbar:focus {
-    width: 400px;
     font-size: 1em;
     font-weight: bold;
     transition: 0.3s;

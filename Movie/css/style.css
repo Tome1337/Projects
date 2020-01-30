@@ -17,7 +17,11 @@ body{
   background-color: #253240;
   margin:0px;
   padding:0px;
-  font-family:Roboto,sans-serif;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Other CSS*/
@@ -52,7 +56,7 @@ body{
 
 .logo>h1{
   color:#fff;
-  font-family:Roboto,sans-serif;
+  font-family:inherit;
   font-size:2.2em;
 }
 

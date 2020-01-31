@@ -156,17 +156,20 @@ html
 {
   box-sizing: border-box;
 }
+html
+{
+  box-sizing: inherit;
+  clear:both;
+  color: white;
+}
 
-
-
-*,*::before,*::after
+html
 {
   box-sizing: inherit;
   clear:both;
   color: white;
   border:1px solid;
 }
-
 
 body
 {
@@ -188,7 +191,6 @@ main
   margin:0 auto;
 }
 
-
 .container:before
 {
   content: "";
@@ -202,6 +204,7 @@ main
     margin-top: 4.25rem;
     font-weight: lighter;
 }
+
 .title-header>h1
 {
     font-size: 1.5em;
@@ -222,7 +225,7 @@ div > h2
 div>h2:after
 {
     content: '';
-    border-top: 1px solid #4c5a65;;
+    border-top: 1px solid #4c5a65;
     margin: 0 1.25rem 0 0;
     flex: 1 0 1.25rem;
 
@@ -288,7 +291,8 @@ div.aspect-ratio > img
 }
 
 
-select {
+select
+{
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -299,11 +303,13 @@ select {
   background: #2c3e50;
   background-image: none;
 }
-select::-ms-expand {
+select::-ms-expand
+{
   display: none;
 }
 
-.select {
+.select
+{
   position: relative;
   display: flex;
   width: 20%;
@@ -314,7 +320,9 @@ select::-ms-expand {
   border-radius:5em;
   margin-left: 1em;
 }
-select {
+
+select
+{
   align-items: center;
   flex: 1;
   padding: 0 2em;
@@ -322,26 +330,23 @@ select {
   cursor: pointer;
 }
 
-.select::after {
+.select::after
+{
   content: '\25BC';
   position: absolute;
   top: 0;
   right: 0;
   padding: 0em 1em;
   margin:0;
-  background: #1b2634;;
+  background: #1b2634;
   cursor: pointer;
   pointer-events: none;
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
 }
-.select:hover::after {
+
+.select:hover::after
+{
   color: red;
-}
-@media screen and max-width(768px){
-  section > ul > li{
-    width: 33.333%;
-    list-style: none;
-  }
 }

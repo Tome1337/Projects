@@ -132,7 +132,7 @@
       }
       .authorName>li:last-child
       {
-        color:#c9d3da
+        color:#c9d3da;
       }
 
 

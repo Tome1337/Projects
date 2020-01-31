@@ -118,16 +118,16 @@ span.dot{
 
 .authorAvatar>img{
   margin:0em 1em;
-  border:3px solid red;
+  border:0.1875em solid red;
   border-radius: 50%;
   background-color: #384352;
   float:right;
-  box-shadow: 0 0 10px #ff0100;
+  box-shadow: 0 0 0.625em #ff0100;
 }
 
 
 .authorName{
-  font-size: 0.82em;
+  font-size: 0.85em;
   margin-top: 2.1em;
   padding:0;
   text-align: right;
@@ -143,4 +143,16 @@ span.dot{
 }
 .authorName>li:last-child{
   color:#c9d3da
+}
+
+.title-header{
+    max-width: 1200px
+    width:100%;
+    margin-top: 6.25rem;
+    padding:0 6rem;
+    font-weight: lighter;
+}
+
+h1{
+  color:#FFF;
 }

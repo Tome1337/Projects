@@ -192,16 +192,16 @@ section > ul
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin: 0;
     padding: 0;
-    list-style: nonoe;
+    list-style: unset;
+    margin-left: -1rem;
+    margin-right: -1rem;
 }
 
 section > ul > li
 {
-    width: calc(100% / 4 - 2rem);
-    list-style: none;
+    width: 25%;
 }
 
 section > ul > li > article > a
@@ -210,6 +210,7 @@ section > ul > li > article > a
     display: flex;
     flex-direction: column;
     text-decoration: unset;
+    padding: 1rem;
 }
 
 div.aspect-ratio

@@ -1,0 +1,423 @@
+<style>
+
+    .Gallery
+    {
+        position:fixed;
+        display:flex;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        z-index: 999;
+        opacity: 0;
+        background: rgba(0,0,0,0.75);
+        transition: transform 125ms ease-out, opacity 125ms ease-out;
+        transform: translateY(0px);
+        align-items: center;
+        justify-content:center;
+        width: 100%;
+        -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+        cursor: zoom-out;
+        &.opened
+        {
+             opacity: 1;
+             .Close {top: 1%;}
+             .Arrow.left{ left: 0; }
+             .Arrow.right{ right:0; }
+        }
+        
+        .Image
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            img
+            {
+                opacity: 0;
+                transition: opacity 300ms ease-in-out;
+                max-width: 90vw;
+                &.active{ opacity: 1; }
+            }
+        }
+
+        .Close
+        {
+
+            position: absolute;
+            top: 0;
+            right: 1%;
+            font-size: 3.5vw;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            opacity: 0.5;
+            padding: 0.7vw;
+            z-index: 1;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            text-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+            transition: top 250ms ease-in-out, opacity 250ms ease-in-out;
+            @media (max-width:1024px) { font-size: 10vw; right: 1%!important;padding:3vw!important;  }
+
+            &:hover, &:focus
+              {
+                  opacity: 1;
+                  text-decoration: none;
+                  cursor: pointer;
+              }
+        }
+
+        .Arrow
+        {
+            position: absolute;
+            opacity: 0.5;
+            margin: 0 2vw;
+            z-index: 1;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 250ms ease-in-out;
+            border-radius: 100%;
+            padding: 1.5vw;
+            width: 36px;
+            height: 36px;
+            background: red;
+            @media (max-width:1024px){display: none;}
+            &.left{ left: -10vw; }
+            &.right{ right: -10vw; }
+        }
+
+        .created, .destroyed
+        {
+            opacity: 0;
+            @media ( max-width: 1024px )
+            {
+                opacity: 1;
+                &.left { right: 100vw; }
+                &.right { left: 100vw; }
+            }
+        }
+    }
+</style>
+<script>
+    window.Gallery = function( element , images )
+    {
+        let opened_gallery = null;
+        element.gallery = this;
+
+        for( let elm of document.querySelectorAll('[data-gallery_open]') )
+        {
+            let key = ( parseInt( elm.dataset.key ) || 0 );
+            elm.addEventListener('click', function () { element.gallery.open( key, event ) });
+        }
+
+        this.open = function( index )
+        {
+            let gallery = opened_gallery =
+                {
+                    images: images,
+                    index: (index || 0 ),
+                    element: document.createElement('div')
+                };
+
+            gallery.element.className = 'Gallery created';
+            gallery.element.innerHTML = '<div class="Close">&times;</div>';
+
+            if(images.length > 1)
+            {
+                left = document.createElement('div');
+                left.className = 'Arrow left';
+                gallery.element.appendChild(left);
+                left.addEventListener('click', function (event)
+                {
+                    event.stopPropagation(); show(gallery, '-1', true);
+                });
+
+                right = document.createElement('div');
+                right.className = 'Arrow right';
+                gallery.element.appendChild(right);
+                right.addEventListener('click', function (event)
+                {
+                    event.stopPropagation(); show(gallery, '+1', true);
+                });
+            }
+
+            gallery.element.addEventListener( 'click', function( event ){ element.gallery.close(); event.stopPropagation(); return false; } );
+
+            show( gallery, gallery.index );
+            document.body.appendChild( gallery.element );
+            setTimeout( function(){ gallery.element.className = 'Gallery opened'; }, 45 );
+            document.addEventListener('keydown', onKeyDown, true);
+            gallery.element.addEventListener('wheel', onScroll, true);
+            gallery.element.addEventListener('mousewheel', onScroll, true);
+        };
+
+
+        function show( gallery, index, type = false )
+        {
+            let oldImage, newImage, direction = 'left';
+            if( typeof index === 'string' )
+            {
+                index = parseInt( index );
+
+                direction = ( index < 0 ? 'right' : 'left' );
+                gallery.index = ( gallery.index + gallery.images.length + index ) % gallery.images.length;
+
+            }
+            else if( index !== undefined )
+            {
+                direction = ( index != 0 && index < gallery.index ? 'right' : 'left' );
+                gallery.index = ( gallery.images.length + index ) % gallery.images.length;
+            }
+
+            if( ( oldImage = gallery.element.querySelector('.Image:not(.destroyed)') ) )
+            {
+                oldImage.className = 'Image destroyed ' + direction;
+                if( type ){ setTimeout( function(){ oldImage.parentElement.removeChild( oldImage ) }, 145 ); }
+            }
+
+
+            newImage = document.createElement('div');
+            gallery.element.querySelector('.destroyed') ? newImage.className = 'Image created ' + direction : newImage.className = 'Image ' + direction;
+
+            gallery.element.appendChild( newImage );
+            if( type ){ setTimeout( function(){ newImage.className = newImage.className.replace('created','').trim() }, 145 ); }
+
+            image = document.createElement('img');
+            image.setAttribute('src' , gallery.images[gallery.index] );
+            image.style.maxHeight = (70 * window.innerHeight) / 100 + 'px';
+            image.style.maxWidth = "100%;";
+            image.onload = function (){
+                image.classList.add('active');
+            };
+            newImage.appendChild ( image );
+            if( gallery.images.length > 1 )
+            {
+                setTimeout(function()
+                {
+                    newImage.addEventListener( 'click', function( event ){ slide( gallery, event, this ); } );
+                    newImage.addEventListener( 'touchstart', function( event ){ slide( gallery, event, this ); } );
+                    newImage.addEventListener( 'touchend', function( event ){ slide( gallery, event, this ); } );
+                    newImage.addEventListener( 'touchmove', function( event ){ slide( gallery, event, this ); } );
+                }, 150);
+            }
+
+        }
+
+
+        let released = false;
+        let rolling = false;
+        let directions = { X: 0, Y: 0 };
+        let first_touch = { X: 0, Y: 0 };
+        let last_touches = [ { X: 0, Y: 0 }, { X: 0, Y: 0 }, { X: 0, Y: 0 }, { X: 0, Y: 0 } ];
+        let last_touch_id = 0;
+
+        this.close = function()
+        {
+            if( opened_gallery )
+            {
+                document.removeEventListener('keydown', onKeyDown, true);
+                opened_gallery.element.removeEventListener('wheel', onScroll, true);
+                opened_gallery.element.removeEventListener('mousewheel', onScroll, true);
+                opened_gallery.element.className = 'destroyed';
+                setTimeout( function(){ document.body.removeChild( opened_gallery.element ); released = false; }, 142 );
+            }
+        };
+
+        function slide( gallery, e, elm )
+        {
+            e.preventDefault();
+
+            if( e.type == 'touchstart' && !rolling )
+            {
+                first_touch.X = e.touches[0].clientX;
+                first_touch.Y = e.touches[0].clientY;
+            }
+
+
+            if( e.type == 'touchmove' && !rolling )
+            {
+                if( first_touch.X > e.changedTouches[0].clientX ){ directions.X = first_touch.X - e.touches[0].clientX; }
+                if( first_touch.X < e.changedTouches[0].clientX ){ directions.X = e.touches[0].clientX - first_touch.X; }
+                if( first_touch.Y > e.changedTouches[0].clientY ){ directions.Y = first_touch.Y - e.changedTouches[0].clientY }
+                if( first_touch.Y < e.changedTouches[0].clientY ){ directions.Y = e.changedTouches[0].clientY - first_touch.Y }
+
+                if( directions.Y < directions.X && !elm.style.bottom && !elm.style.top )
+                {
+                    if( !released && first_touch.X > e.changedTouches[0].clientX )
+                    {
+                        gallery.images.length > 1 ? show(gallery, '+1') : '';
+                        released = true;
+                    }
+                    else if( !released && first_touch.X < e.changedTouches[0].clientX )
+                    {
+                        gallery.images.length > 1 ? show(gallery, '-1') : '';
+                        released = true;
+                    }
+
+                    if( first_touch.X > e.changedTouches[0].clientX )
+                    {
+                        if( elm.style.left ) { elm.style.removeProperty("left") }
+                        if( elm.classList.contains('right') ){ elm.classList.remove('right'); elm.classList.add('left') }
+                        elm.style.right = ( ( window.innerWidth - elm.offsetWidth ) / 2 ) + ( first_touch.X - e.touches[0].clientX ) + 'px';
+
+                        if( elm && elm.parentNode && elm.parentNode.querySelector('.created') )
+                        {
+                            let newImg = elm.parentNode.querySelector('.created');
+                            if( newImg.style.left ) { newImg.style.removeProperty("left") }
+                            if( newImg.classList.contains('right') ){ newImg.classList.remove('right'); newImg.classList.add('left') }
+                            newImg.style.right = ( ( ( window.innerWidth - newImg.offsetWidth ) / 2 ) + ( first_touch.X - e.touches[0].clientX ) - window.innerWidth ) + 'px';
+                        }
+                    }
+                    else if( first_touch.X < e.changedTouches[0].clientX )
+                    {
+                        if( elm.style.right ) { elm.style.removeProperty("right") }
+                        if( elm.classList.contains('left') ){ elm.classList.remove('left'); elm.classList.add('right') }
+                        elm.style.left = ( ( window.innerWidth - elm.offsetWidth ) / 2 ) + ( e.touches[0].clientX - first_touch.X ) + 'px';
+
+                        if( elm && elm.parentNode && elm.parentNode.querySelector('.created') )
+                        {
+                            let newImg = elm.parentNode.querySelector('.created');
+                            if( newImg.style.right ) { newImg.style.removeProperty("right") }
+                            if( newImg.classList.contains('left') ){ newImg.classList.remove('left'); newImg.classList.add('right') }
+                            newImg.style.left = ( ( ( window.innerWidth - newImg.offsetWidth ) / 2 ) + ( e.touches[0].clientX - first_touch.X ) - window.innerWidth ) + 'px';
+                        }
+                    }
+                }
+                else
+                {
+                    elm.style.right = 'auto';
+                    elm.style.left = 'auto';
+                    if( first_touch.Y > e.changedTouches[0].clientY )
+                    {
+                        elm.style.bottom = ( ( window.innerHeight - elm.offsetHeight ) / 2 ) + ( first_touch.Y - e.touches[0].clientY ) + 'px';
+                        elm.style.opacity = ( elm.style.opacity || 1 ) - ( ( ( first_touch.Y - e.touches[0].clientY ) / window.innerHeight ) / 10 );
+                    }
+                    else
+                    {
+                        elm.style.top = ( ( window.innerHeight - elm.offsetHeight ) / 2 ) + ( e.touches[0].clientY - first_touch.Y ) + 'px';
+                        elm.style.opacity = ( elm.style.opacity || 1 ) - ( ( ( e.touches[0].clientY - first_touch.Y ) / window.innerHeight ) / 10 );
+                    }
+                }
+                last_touches[last_touch_id].X = e.touches[0].clientX;
+                last_touches[last_touch_id].Y = e.touches[0].clientY;
+                last_touch_id !== 3 ? last_touch_id += 1 : last_touch_id = 0;
+            }
+
+            if( e.type == 'touchend' && !rolling )
+            {
+                let last_touch_index = 0;
+                for( let key in last_touches ){ if( last_touches[key].X && last_touches[key].Y ){ last_touch_index = key } }
+                if( directions.Y > directions.X || elm.style.top || elm.style.bottom )
+                {
+                    let directory = first_touch.Y > e.changedTouches[0].clientY ? 'bottom' : 'top';
+                    if( ( directory.includes('top') && last_touches[0].Y > last_touches[last_touch_index].Y ) || ( directory.includes('bottom') && last_touches[0].Y < last_touches[last_touch_index].Y ) || elm.style.opacity < 0.3 )
+                    {
+                        elm.style.transition = 'all 300ms ease-in-out';
+                        elm.style.opacity = 0;
+                        first_touch.Y > e.changedTouches[0].clientY ? elm.style.bottom = '100%' : elm.style.top = '100%';
+                        setTimeout( function(){ element.gallery.close(); }, 320 );
+                    }
+                    else
+                    {
+                        elm.style.transition = 'all 300ms ease-in-out';
+                        elm.style.opacity = 1;
+                        first_touch.Y > e.changedTouches[0].clientY ? elm.style.bottom = ( window.innerHeight - elm.clientHeight ) / 2 + 'px' : elm.style.top = ( window.innerHeight - elm.clientHeight ) / 2 + 'px';
+                        if( elm && elm.parentNode && elm.parentNode.querySelector('.created') )
+                        {
+                            elm.parentNode.removeChild( elm.parentNode.querySelector('.created') );
+                        }
+                        setTimeout( function(){ elm.style.removeProperty("transition"); if( elm.style.bottom ){ elm.style.removeProperty('bottom') } if( elm.style.top ){ elm.style.removeProperty('top') } }, 150 );
+                    }
+                }
+                else
+                {
+                    let directory = elm.style.right ? 'right' : 'left';
+                    if( ( directory.includes('right') && last_touches[0].X < last_touches[last_touch_index].X ) || ( directory.includes('left') && last_touches[0].X > last_touches[last_touch_index].X ) )
+                    {
+                        if( elm && elm.parentNode && elm.parentNode.querySelector('.destroyed') && !elm.style.bottom && !elm.style.top )
+                        {
+                            rolling = true;
+                            elm.style.transition = 'all 300ms ease-in-out';
+                            elm.style.opacity = '0';
+                            elm.style.right ? elm.style.right = '100vw' : elm.style.left = '100vw';
+
+                            if( elm.parentNode.querySelector('.Image') )
+                            {
+                                let newImg = elm.parentNode.querySelector('.created');
+                                newImg.style.transition = 'all 300ms ease-in-out';
+                                newImg.style.right ? newImg.style.right = ( window.innerWidth - newImg.clientWidth ) / 2 + 'px' : newImg.style.left = ( window.innerWidth - newImg.clientWidth ) / 2 + 'px';
+
+                                setTimeout( function(){ newImg.style.removeProperty("transition"); newImg.classList.remove('created'); newImg.style.right ? newImg.style.removeProperty("right") : newImg.style.removeProperty("left"); }, 320 );
+                            }
+                            setTimeout( function(){ elm.parentElement.removeChild( elm ); rolling = false; released = false; }, 320 );
+                        }
+                    }
+                    else
+                    {
+                        elm.style.transition = 'all 300ms ease-in-out';
+                        elm.style.right ? elm.style.right = ( window.innerWidth - elm.clientWidth ) / 2 + 'px' : elm.style.left = ( window.innerWidth - elm.clientWidth ) / 2 + 'px';
+                        if( elm && elm.parentNode && elm.parentNode.querySelector('.created') )
+                        {
+                            let nwimg = elm.parentNode.querySelector('.created');
+                            nwimg.style.transition = 'all 300ms ease-in-out';
+                            nwimg.style.opacity = '0';
+                            nwimg.style.right ? nwimg.style.right = '-100vw' : nwimg.style.left = '-100vw';
+                        }
+
+                        setTimeout( function()
+                        {
+                            elm.style.removeProperty("transition"); rolling = false; released = false;
+                            if( elm && elm.parentNode && elm.parentNode.querySelector('.created') )
+                            {
+                                elm.parentNode.removeChild( elm.parentNode.querySelector('.created') );
+                            }
+                        }, 320 );
+                    }
+                }
+            }
+
+            if( e.type == 'click' && !rolling ){ gallery.images.length > 1 ? show( gallery, e.clientX < window.innerWidth / 2 ? '-1' : '+1', true ) : ''; }
+        }
+
+        function onScroll( event )
+        {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+
+            try{ event.stopPropagation(); }catch(e){}
+            return false;
+        }
+
+        function onKeyDown( event )
+        {
+            if( opened_gallery )
+            {
+                if(images.length > 1)
+                {
+                    switch( event.keyCode )
+                    {
+                        case 27: element.gallery.close(); break;
+                        case 38: case 37: show( opened_gallery, '-1', true ); break;
+                        case 13: case 32: case 39: case 40: show( opened_gallery, '+1', true ); break;
+                    }
+                }
+                event.preventDefault();
+            }
+            else
+            {
+                document.removeEventListener('keydown', onKeyDown, true);
+            }
+        }
+
+    }
+</script>
+<div data-selector={selector}>
+    {CONTENT}
+</div>
+<script selector={selector} images={images} instance>
+    new window.Gallery( document.querySelector( '[data-selector="'+selector+'"]' ), images.map( image => image ) );
+</script>

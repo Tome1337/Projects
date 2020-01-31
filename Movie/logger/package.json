@@ -1,0 +1,16 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@liqd-js/cloud": "0.0.2",
+    "liqd-logger": "0.0.3",
+    "liqd-server": "^1.3.5"
+  }
+}

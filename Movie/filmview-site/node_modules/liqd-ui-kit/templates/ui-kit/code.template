@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<pre>
+    <code class={syntax} style="font-size: var(--font-1);line-height: var(--font-5);">{data}</code>
+</pre>

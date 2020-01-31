@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "name": "admin",
+  "description": "Eshop admin",
+  "main": "main.js",
+  "dependencies": {
+    "@liqd-js/cloud": "0.0.2",
+    "liqd-jwt": "^1.0.0",
+    "liqd-logger": "0.0.3",
+    "liqd-ql": "0.0.9",
+    "liqd-server": "^1.3.2",
+    "liqd-sql": "^1.6.0",
+    "liqd-template": "^1.9.2",
+    "liqd-ui-kit": "0.0.4",
+    "mysql": "^2.17.1"
+  }
+}

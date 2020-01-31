@@ -47,7 +47,7 @@ main
 
 .header
 {
-  width:100%;
+  width:90%;
   display:flex;
   height:5.625em;
   background-color: #1b2634;
@@ -183,7 +183,6 @@ span.dot
 {
     width:100%;
     margin-top: 6.25rem;
-    padding:0 6rem;
     font-weight: lighter;
 }
 .title-header>h1
@@ -191,7 +190,8 @@ span.dot
     font-size: 1.5em;
 }
 
-div>h2{
+div > h2
+{
     color:#4c5a65;
     font-size: 1.2em;
     display: flex;
@@ -202,7 +202,8 @@ div>h2{
 }
 
 
-div>h2:after {
+div>h2:after
+{
     content: '';
     border-top: 1px solid #4c5a65;;
     margin: 0 1.25rem 0 0;
@@ -212,13 +213,6 @@ div>h2:after {
 
 div>h2:after {
     margin: 0 0 0 1.25rem;
-}
-
-
-
-section
-{
-    margin:0 6em;
 }
 
 section > div

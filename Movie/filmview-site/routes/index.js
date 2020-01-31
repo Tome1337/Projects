@@ -4,7 +4,7 @@ module.exports = ( server, service ) =>
 {
     server.get('/:category(.*)-c:id(\\d+)', async (req, res) =>
     {
-        LOG.notice( 'GET Filmview_Route::/category' );
+        LOG.notice( 'GET Filmview_Route/category::/' + req.query.category + '-c' + req.query.id );
         try
         {
             res.reply( await req.template.render('category', {}, req.scope ), 'text/html' );
@@ -19,7 +19,7 @@ module.exports = ( server, service ) =>
 
     server.get('/:actor(.*)-a:id(\\d+)', async (req, res) =>
     {
-        LOG.notice( 'GET Filmview_Route::/actor' );
+        LOG.notice( 'GET Filmview_Route/actor::/' + req.query.actor + '-a' + req.query.id );
         try
         {
             res.reply( await req.template.render('actor', {}, req.scope ), 'text/html' );
@@ -34,7 +34,7 @@ module.exports = ( server, service ) =>
 
     server.get('/:movie(.*)-m:id(\\d+)', async (req, res) =>
     {
-        LOG.notice( 'GET Filmview_Route::/movie' );
+        LOG.notice( 'GET Filmview_Route/movie::/' + req.query.movie + '-m' + req.query.id );
         try
         {
             res.reply( await req.template.render('movie', {}, req.scope ), 'text/html' );

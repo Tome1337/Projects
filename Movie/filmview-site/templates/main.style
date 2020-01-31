@@ -173,8 +173,7 @@ html
 
 body
 {
-  width:100%;
-  font-size: 100%;
+  width: 100%;
   background-color: #253240;
   margin:0 auto;
   padding:0;
@@ -187,7 +186,7 @@ body
 
 main
 {
-  width:85%;
+  width: 85%;
   margin:0 auto;
 }
 

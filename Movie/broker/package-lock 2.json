@@ -1,0 +1,80 @@
+{
+  "name": "broker",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "@liqd-js/client-jsonrpc": {
+      "version": "0.0.2",
+      "resolved": "https://registry.npmjs.org/@liqd-js/client-jsonrpc/-/client-jsonrpc-0.0.2.tgz",
+      "integrity": "sha512-CISrVA3k6oy5f+QQM/rm3EpW4mTJfnDOsu6uGxQXw/36B+Jnwp+jE+JUrk4EvKwDmv3UdUBNzGqHIaCPj7QLtw==",
+      "requires": {
+        "@liqd-js/options": "^1.0.1",
+        "@liqd-js/timed-promise": "^1.0.2",
+        "@liqd-js/unique-id": "^1.0.0"
+      }
+    },
+    "@liqd-js/cloud": {
+      "version": "0.0.2",
+      "resolved": "https://registry.npmjs.org/@liqd-js/cloud/-/cloud-0.0.2.tgz",
+      "integrity": "sha512-YQAz3qmBrrG5hdfhEoE4Xi4dVyBFdtAnRYjGzn6Jcoqpp4CSe+pJP2BrZbxBDgwioJKFh6fKuxAM5AgYlrfREw==",
+      "requires": {
+        "@liqd-js/client-jsonrpc": "0.0.2",
+        "@liqd-js/timed-promise": "^1.0.2",
+        "@liqd-js/websocket": "^1.0.0"
+      }
+    },
+    "@liqd-js/ds-heap": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/@liqd-js/ds-heap/-/ds-heap-1.0.1.tgz",
+      "integrity": "sha512-9vHSLN82P3Np2wrDRQHebrQ6N8hwApAJSKJDXOijXGrlN7v/cv2ej6JZqGoqwb314mPtjQofJ2SJTcKS8YpQig=="
+    },
+    "@liqd-js/multibuffer": {
+      "version": "1.0.2",
+      "resolved": "https://registry.npmjs.org/@liqd-js/multibuffer/-/multibuffer-1.0.2.tgz",
+      "integrity": "sha512-zt4Z7wopxKZABLGQroLs0Jl4+KX6Ll9FNlYCt+cJdEmqZ8wIU6QlqVgtyS7wSDMTDMmG7TPpy6wOCNtHIimAWw=="
+    },
+    "@liqd-js/options": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/@liqd-js/options/-/options-1.0.1.tgz",
+      "integrity": "sha512-WmJDGxXamKaHz4KFXR9DrFyUIB4g1gXbpF7xmPmcABhdhEiEzLozMvpXCX/8nU+zjmsSXm15CnV3oM7iEUdEmg=="
+    },
+    "@liqd-js/querystring": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/@liqd-js/querystring/-/querystring-1.0.0.tgz",
+      "integrity": "sha512-/K4dx3hB7U0pkkzq8PfJmbywtoGc+ZkXelxwX+tkedbwbaqziEem/3L1LAcp0aFlJROWf20ByYyOlfGyDv5Wlg=="
+    },
+    "@liqd-js/timed-promise": {
+      "version": "1.0.2",
+      "resolved": "https://registry.npmjs.org/@liqd-js/timed-promise/-/timed-promise-1.0.2.tgz",
+      "integrity": "sha512-IgqgeMFOJxdmGpKOsruwUtE2D/kMjCOVeiL6/z/q8TZHaWLDzBkMMDTFMknwmZGega8mkLHFM2t4HLGYWCm8Rg=="
+    },
+    "@liqd-js/timer": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/@liqd-js/timer/-/timer-1.0.1.tgz",
+      "integrity": "sha512-ZefFi4XORbEx7AYZ8ToZ5NfWyMsFwfYUniHrMALHs0A4wauGtiIaVQWlSBxjEm8d9X8vyBizZjmU05zAx8kqqw==",
+      "requires": {
+        "@liqd-js/ds-heap": "^1.0.1"
+      }
+    },
+    "@liqd-js/unique-id": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/@liqd-js/unique-id/-/unique-id-1.0.0.tgz",
+      "integrity": "sha512-D4G+FVoHqgObN4+p8YMscQOFVOjsJwxVr+SwItAlZsoU+6NKRMEM43MAz11AfC6Cry/ojlbh8GucHiF9SKZGrg==",
+      "requires": {
+        "@liqd-js/options": "^1.0.1"
+      }
+    },
+    "@liqd-js/websocket": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/@liqd-js/websocket/-/websocket-1.0.0.tgz",
+      "integrity": "sha512-CJFTL/fJtIWrl/uoVSMk1dqjMK9InbcXuXCaeOxLhVTL6Ju+l2L3ejYBC4G5EyGjR70ag0S85sZXXpxaobD9cQ==",
+      "requires": {
+        "@liqd-js/multibuffer": "^1.0.2",
+        "@liqd-js/options": "^1.0.1",
+        "@liqd-js/querystring": "^1.0.0",
+        "@liqd-js/timer": "^1.0.1"
+      }
+    }
+  }
+}

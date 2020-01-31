@@ -1,18 +1,22 @@
 /* Main CSS*/
-html{
+html
+{
   box-sizing: border-box;
 }
 
 
 
-*,*::before,*::after{
+*,*::before,*::after
+{
   box-sizing: inherit;
   clear:both;
+  color: white;
   /*border:1px solid;*/
 }
 
 
-body{
+body
+{
   font-size: 100%;
   background-color: #253240;
   margin:0px;
@@ -25,18 +29,21 @@ body{
 }
 
 /* Other CSS*/
-.container:before{
+.container:before
+{
   content: "";
   clear: both;
   display: table;
 }
 
 
-.container{
+.container
+{
   max-width:100%;
 }
 
-.header{
+.header
+{
   display:flex;
   width:100%;
   height:5.625em;
@@ -46,7 +53,8 @@ body{
   box-shadow: -1px 10px 7px -6px rgba(0,0,0,0.2);
 }
 
-.logo{
+.logo
+{
   display:flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -54,18 +62,21 @@ body{
   margin:0em 2em;
 }
 
-.logo>h1{
+.logo>h1
+{
   color:#fff;
   font-family:inherit;
   font-size:2.2em;
 }
 
-span.dot{
+span.dot
+{
   color:red;
   font-size: 1em;
 }
 
-.search{
+.search
+{
   display:flex;
   flex-direction:row;
   width:70%;
@@ -75,7 +86,8 @@ span.dot{
 
 
 
-.searchbar {
+.searchbar
+{
     background-color: transparent;
     color: white;
     padding: 0.4em 0.625em;
@@ -88,14 +100,16 @@ span.dot{
     height:1.3em;
 }
 
-.searchbar::placeholder {
+.searchbar::placeholder
+{
     color: #3a4553;
     font-size: 1em;
     font-weight: bold;
     /* transition: 0.2s; */
 }
 
-.searchbar:focus {
+.searchbar:focus
+{
     font-size: 1em;
     font-weight: bold;
     transition: 0.3s;
@@ -105,19 +119,22 @@ span.dot{
 
 
 
-.account{
+.account
+{
   width:20%;
   display:flex;
   flex-direction: row;
   border-left:1px solid #384352;
 }
-.authorAvatar{
+.authorAvatar
+{
   display:flex;
   padding:1.2em 0em;
   margin-right: 1em;
 }
 
-.authorAvatar>img{
+.authorAvatar>img
+{
   margin:0em 1em;
   border:0.1875em solid red;
   border-radius: 50%;
@@ -127,7 +144,8 @@ span.dot{
 }
 
 
-.authorName{
+.authorName
+{
   font-size: 0.85em;
   margin-top: 2.1em;
   padding:0;
@@ -139,14 +157,17 @@ span.dot{
 }
 
 
-.authorName>li:first-child{
+.authorName>li:first-child
+{
   color:#717e87;
 }
-.authorName>li:last-child{
+.authorName>li:last-child
+{
   color:#c9d3da
 }
 
-.title-header{
+.title-header
+{
     max-width: 1200px
     width:100%;
     margin-top: 6.25rem;
@@ -154,6 +175,57 @@ span.dot{
     font-weight: lighter;
 }
 
-h1{
-  color:#FFF;
+section
+{
+    margin:0 6em;
+}
+
+section > div
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+section > ul
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: nonoe;
+}
+
+section > ul > li
+{
+    width: calc(100% / 4 - 2rem);
+    list-style: none;
+}
+
+section > ul > li > article > a
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: unset;
+}
+
+div.aspect-ratio
+{
+    height: 0;
+    overflow: hidden;
+    padding-top: 150%;
+    background: white;
+    position: relative;
+}
+
+div.aspect-ratio > img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

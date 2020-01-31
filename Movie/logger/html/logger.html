@@ -27,6 +27,7 @@
                 {
                     Logger.onmessage = function( message )
                     {
+                        console.log(message.data)
                         let log = typeof message.data === 'string' ? JSON.parse( message.data ) : message.data;
 
                         let debug = document.createElement('pre');

@@ -6,7 +6,7 @@ global.LOGGER = function( service )
 
     logger.attachLoggerStream( Logger.level.info, log =>
     {
-        service.service('@com.webergency.logger').log( log.level, log.format() );
+        service.service('@com.filmview.logger').log( log.level, log.format() );
     });
 
     setTimeout(() => logger.notice( 'service started' ), 1000 );

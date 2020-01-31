@@ -15,7 +15,7 @@ const LoggerService = module.exports = class LoggerService extends Service
 
     constructor()
     {
-        super();
+        super( '@com.filmview.logger' );
 
         this.#server = new Server();
 

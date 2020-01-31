@@ -233,7 +233,7 @@ section > ul
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
-    list-style: unset;
+    list-style: none;
     margin-left: -1rem;
     margin-right: -1rem;
 }

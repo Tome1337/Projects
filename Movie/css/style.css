@@ -100,6 +100,7 @@ span.dot
 
 
 
+
 .searchbar
 {
     background-color: transparent;
@@ -187,6 +188,10 @@ span.dot
     margin-top: 6.25rem;
     padding:0 6rem;
     font-weight: lighter;
+}
+.title-header>h1
+{
+    font-size: 1.8em;
 }
 
 div>h2{

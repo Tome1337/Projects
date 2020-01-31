@@ -17,16 +17,25 @@ html
 
 body
 {
+  width:100%;
   font-size: 100%;
   background-color: #253240;
-  margin:0px;
-  padding:0px;
+  margin:0 auto;
+  padding:0;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
+
+main
+{
+  width:90%;
+  margin:0 auto;
+}
+
+
 
 /* Other CSS*/
 .container:before
@@ -36,17 +45,10 @@ body
   display: table;
 }
 
-
-.container
-{
-  max-width:100%;
-}
-
-
 .header
 {
+  width:100%;
   display:flex;
-  width:91%;
   height:5.625em;
   background-color: #1b2634;
   -webkit-box-shadow: -1px 10px 7px -6px rgba(0,0,0,0.2);
@@ -55,10 +57,6 @@ body
   margin:auto;
   margin-top: 2em;
   border-radius: 5em;
-}
-.sticky{
-  position: sticky;
-  position: -webkit sticky;
 }
 
 .logo
@@ -183,7 +181,6 @@ span.dot
 
 .title-header
 {
-    max-width: 1200px
     width:100%;
     margin-top: 6.25rem;
     padding:0 6rem;

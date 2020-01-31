@@ -1,0 +1,6 @@
+<ul>
+    for( item of data.items )
+    {
+        <li>{item}</li>
+    }
+</ul>

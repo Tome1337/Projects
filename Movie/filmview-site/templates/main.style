@@ -1,0 +1,153 @@
+$page-width: 1140rem;
+
+@font-light{ font-weight: 300; }
+@font-regular{ font-weight: 400; }
+@font-medium{ font-weight: 500; }
+@font-bold{ font-weight: 600; }
+
+$font-9-size: 9rem;
+$font-9-height: 14rem;
+@font-9{ font-size: $font-9-size; line-height: $font-9-height; }
+
+$font-10-size: 10rem;
+$font-10-height: 14rem;
+@font-10{ font-size: $font-10-size; line-height: $font-10-height; }
+
+$font-11-size: 11rem;
+$font-11-height: 16rem;
+@font-11{ font-size: $font-11-size; line-height: $font-11-height; }
+
+$font-12-size: 12rem;
+$font-12-height: 16rem;
+@font-12{ font-size: $font-12-size; line-height: $font-12-height; }
+
+$font-13-size: 13rem;
+$font-13-height: 18rem;
+@font-13{ font-size: $font-13-size; line-height: $font-13-height; }
+
+$font-14-size: 14rem;
+$font-14-height: 20rem;
+@font-14{ font-size: $font-14-size; line-height: $font-14-height; }
+
+$font-16-size: 16rem;
+$font-16-height: 22rem;
+@font-16{ font-size: $font-16-size; line-height: $font-16-height; }
+
+$font-18-size: 18rem;
+$font-18-height: 24rem;
+@font-18{ font-size: $font-18-size; line-height: $font-18-height; }
+
+$font-22-size: 22rem;
+$font-22-height: 30rem;
+@font-22{ font-size: $font-22-size; line-height: $font-22-height; }
+
+
+:root
+{
+    --padding-0: 4px;
+    --padding-1: 8px;
+    --padding-2: 12px;
+    --padding-3: 16px;
+    --padding-4: 24px;
+    --padding-5: 32px;
+    --padding-6: 48px;
+    --padding-7: 64px;
+    --padding-8: 96px;
+    --padding-9: 128px;
+    --padding-10: 192px;
+    --padding-11: 256px;
+    --padding-12: 384px;
+
+    --gray-0: #FAFAFA;
+    --gray-1: #F5F5F5;
+    --gray-2: #EEEEEE;
+    --gray-3: #E0E0E0;
+    --gray-4: #BDBDBD;
+    --gray-5: #9E9E9E;
+    --gray-6: #757575;
+    --gray-7: #616161;
+    --gray-8: #424242;
+    --gray-9: #212121;
+
+    --red-0: #FBE9E7;
+    --red-1: #FFCCBC;
+    --red-2: #FFAB91;
+    --red-3: #FF8A65;
+    --red-4: #FF7043;
+    --red-5: #FF5722;
+    --red-6: #F4511E;
+    --red-7: #E64A19;
+    --red-8: #D84315;
+    --red-9: #BF360C;
+
+    --green-0: #E8F5E9;
+    --green-1: #C8E6C9;
+    --green-2: #A5D6A7;
+    --green-3: #81C784;
+    --green-4: #66BB6A;
+    --green-5: #4CAF50;
+    --green-6: #43A047;
+    --green-7: #388E3C;
+    --green-8: #2E7D32;
+    --green-9: #1B5E20;
+
+    --main-color: #08c;
+    --main-color-light: #00a3f5;
+}
+
+@font-face
+{
+    font-family: "Flaticon";
+    src: url("/data/Flaticon.eot");
+    src: url("/data/Flaticon.eot?#iefix") format("embedded-opentype"),
+    url("/data/Flaticon.woff") format("woff"),
+    url("/data/Flaticon.ttf") format("truetype"),
+    url("/data/Flaticon.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    @font-face
+    {
+        font-family: "Flaticon";
+        src: url("/data/Flaticon.svg#Flaticon") format("svg");
+    }
+}
+
+[data-icon]:before
+{
+    font-family: "flaticon";
+    font-size: inherit;
+    font-style: normal;
+    text-align: center;
+    color: inherit;
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+}
+
+[data-icon=add]:before { content: "\f193"; }
+[data-icon=cancel]:before { content: "\f195"; }
+[data-icon=edit]:before { content: "\f182"; }
+[data-icon=add-round]:before { content: "\f18d"; }
+[data-icon=cancel-round]:before { content: "\f18e"; }
+[data-icon=update-round]:before { content: "\f18c"; }
+
+a{ color: inherit; text-decoration: none; }
+
+html, body{ margin:0; padding: 0; font-size: 1.00px; width: 100%; height: 100%; overflow: hidden; }
+body
+{
+    font-size: 13rem;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    line-height: 1.35em;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}

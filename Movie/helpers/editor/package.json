@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "name": "editor",
+  "description": "Editor render",
+  "main": "editor.js",
+  "dependencies": {
+    "liqd-template": "^1.9.5"
+  }
+}

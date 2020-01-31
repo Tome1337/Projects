@@ -1,0 +1,26 @@
+<style require="/templates/main.style">
+    header
+    {
+
+    }
+</style>
+<header>
+    <div class="header">
+        <div class="logo">
+            <h1><a href="#">Movied<span class="dot">.</span></a></h1>
+        </div>
+        <div class="search">
+            <input id="searchBar" class="searchbar" type="text" placeholder="Search something here..." />
+            <a id="btnSearch" class="btn-search"></a>
+        </div>
+        <div class="account">
+            <ul class="authorName">
+                <li>Hello</li>
+                <li>Mitch Buchannon</li>
+            </ul>
+            <a href="#" class="authorAvatar">
+                tu bol mitch
+            </a>
+        </div>
+    </div>
+</header>

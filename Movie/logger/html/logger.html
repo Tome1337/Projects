@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Logger</title>
+        <style>
+            html{ background: black; color: white; }
+            pre{ margin: 0; padding: 2px; }
+
+            .emergency{ color: #fc0d1b }
+		    .alert{ color: #fc0d1b }
+		    .critical{ color: #fc0d1b }
+		    .error{ color: #fd8724 }
+		    .warning{ color: #fffd38 }
+		    .notice{ color: #64d527 }
+		    .info{ color: #25d7fd }
+		    .debug{ color: #178afb }
+		    .devel{ color: #808080 }
+        </style>
+        <script>
+
+            function connect()
+            {
+                const Logger = new WebSocket( 'ws://localhost:10100' );
+
+                Logger.onopen = function()
+                {
+                    Logger.onmessage = function( message )
+                    {
+                        console.log(message.data)
+                        let log = typeof message.data === 'string' ? JSON.parse( message.data ) : message.data;
+
+                        let debug = document.createElement('pre');
+                        debug.setAttribute('class',log.level);
+                        debug.innerHTML = log.message;
+
+                        document.getElementById('logger').appendChild( debug );
+                    }
+                };
+
+                Logger.onclose = function()
+                {
+
+                };
+
+                Logger.onerror = function()
+                {
+                    connect();
+                }
+            }
+
+            connect();
+
+        </script>
+    </head>
+    <body>
+        <div id="logger"></div>
+    </body>
+</html>

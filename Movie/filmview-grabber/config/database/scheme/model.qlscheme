@@ -1,0 +1,144 @@
+clients
+{
+    -> client_menus : client_menus.clientID = clients.id
+    -> menus - client_menus - clients
+
+    .date( created ) : { client } =>
+    {
+
+      var a = new Date(client.created * 1000);
+      var months = ['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time = date + '. ' + month + ' ' + hour + ':' + min ;
+
+      return time;
+    }
+}
+
+client_menus
+{
+    .date( created ) : { client_menu } =>
+    {
+
+      var a = new Date(client_menu.created * 1000);
+      var months = ['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time = date + '. ' + month + ' ' + hour + ':' + min ;
+
+      return time;
+    }
+}
+
+menus
+{
+    -> menu_days : menu_days.menuID = menus.id
+    -> menu_tags : menu_tags.menuID = menus.id
+    -> client_menus : client_menus.menuID = menus.id
+    -> days - menu_days - menus
+
+    .date( created ) : { menu } =>
+    {
+
+      var a = new Date(menu.created * 1000);
+      var months = ['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time = date + '. ' + month + ' ' + hour + ':' + min ;
+
+      return time;
+    }
+}
+
+menu_tags
+{
+    -> tags : tags.id = menu_tags.tagID
+}
+
+menu_days
+{
+    -> menus : menus.id = menu_days.menuID
+    -> days : days.id = menu_days.dayID
+}
+
+days
+{
+    -> day_foods : day_foods.dayID = days.id
+    -> foods - day_foods - days
+}
+
+day_foods
+{
+    -> days : days.id = day_foods.dayID
+    -> foods : foods.id = day_foods.foodID
+}
+
+foods
+{
+    -> food_ingredients : food_ingredients.foodID = foods.id
+    -> ingredients - food_ingredients - foods
+
+    .date( created ) : { food } =>
+    {
+
+      var a = new Date(food.created * 1000);
+      var months = ['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time = date + '. ' + month + ' ' + hour + ':' + min ;
+
+      return time;
+    }
+}
+
+food_ingredients
+{
+    -> ingredients : ingredients.id = food_ingredients.ingredientID
+    -> foods : foods.id = food_ingredients.foodID
+}
+
+ingredients
+{
+    -> ingredient_tags : ingredient_tags.ingredientID = ingredients.id
+    -> food_ingredients : food_ingredients.ingredientID = ingredients.id
+    -> tags - ingredient_tags - ingredients
+
+    .date( created ) : { ingredient } =>
+    {
+
+      var a = new Date(ingredient.created * 1000);
+      var months = ['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time = date + '. ' + month + ' ' + hour + ':' + min ;
+
+      return time;
+    }
+}
+
+ingredient_tags
+{
+    -> tags : tags.id = ingredient_tags.tagID
+}
+
+tags
+{
+    -> ingredients - ingredient_tags - tags
+    -> menus - menu_tags - tags
+}

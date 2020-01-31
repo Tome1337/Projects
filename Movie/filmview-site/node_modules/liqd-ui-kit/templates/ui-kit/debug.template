@@ -1,0 +1,32 @@
+<style>
+	pre
+	{
+		color: #333;
+		user-select: text;
+		-webkit-user-select: text;
+		-moz-user-select: text;
+		.number
+		{
+			color: #008080;
+		}
+		.key
+		{
+			color: #333;
+		}
+		.string
+		{
+			color: #d14;
+		}
+		.boolean
+		{
+			color: #008080;
+		}
+		.null
+		{
+			color: #008080;
+		}
+	}
+</style>
+<pre>
+	#{ObjectLib.debugObject( data )}
+</pre>

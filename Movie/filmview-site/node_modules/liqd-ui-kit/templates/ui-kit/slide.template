@@ -1,0 +1,3 @@
+<div class={"_slide "+(typeof className !="undefined" ? className : '')} style={'width:'+(typeof width !="undefined" ? width : '100%')} itemprop={(typeof itemprop != 'undefined' ? itemprop : null)} itemscope={(typeof itemscope != 'undefined' ? itemscope : null)} itemprop={(typeof itemprop != 'undefined' ? itemprop : null)} itemtype={(typeof itemtype != 'undefined' ? itemtype : null)}>
+    {CONTENT}
+</div>

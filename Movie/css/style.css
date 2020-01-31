@@ -69,7 +69,8 @@ span.dot{
   display:flex;
   flex-direction:row;
   width:70%;
-  padding:2.35em;
+  padding:2.35em 0em;
+  margin-left: 2rem;
 }
 
 

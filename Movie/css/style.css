@@ -191,7 +191,7 @@ span.dot
 }
 .title-header>h1
 {
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 div>h2{
@@ -207,7 +207,7 @@ div>h2{
 
 div>h2:after {
     content: '';
-    border-top: 0.0325em solid #4c5a65;;
+    border-top: 1px solid #4c5a65;;
     margin: 0 1.25rem 0 0;
     flex: 1 0 1.25rem;
 
@@ -263,7 +263,7 @@ div.aspect-ratio
 {
     height: 0;
     overflow: hidden;
-    padding-top: 112.5%;
+    padding-top: 177%;
     background: white;
     position: relative;
 }

@@ -5,13 +5,13 @@
       {
         width:90%;
         display:flex;
-        height:5.625em;
+        height:var(--padding-7);
         background-color: #1b2634;
         -webkit-box-shadow: -1px 10px 7px -6px rgba(0,0,0,0.2);
         -moz-box-shadow: -1px 10px 7px -6px rgba(0,0,0,0.2);
         box-shadow: -1px 10px 7px -6px rgba(0,0,0,0.2);
         margin:auto;
-        margin-top: 2em;
+        margin-top: var(--padding-5);
         border-radius: 5em;
       }
 
@@ -20,21 +20,17 @@
         display:flex;
         flex-direction: row;
         justify-content: flex-start;
+        align-items: center;
         width:10%;
-        margin:0em 2em;
+        margin:0 var(--padding-5);
       }
 
-      .logo>h1
+      .logo > h1
       {
         color:#fff;
         font-family:inherit;
-        font-size:2.2em;
         text-decoration: unset;
-      }
-
-      .logo>h1>a
-      {
-        text-decoration: unset;
+        @font-22;
       }
 
       span.dot
@@ -45,15 +41,12 @@
 
       .search
       {
-        display:flex;
-        flex-direction:row;
-        width:70%;
-        padding:2.2em 0em;
-        margin-left: 2rem;
-        font-size: inherit;
+            display:flex;
+            flex-direction:row;
+            align-items: center;
+            width:70%;
+            font-size: inherit;
       }
-
-
 
 
       .searchbar
@@ -62,30 +55,27 @@
           color: white;
           border: none;
           font-family: inherit;
-          font-size: 1.1em;
           font-weight: bold;
           transition: 0.3s;
           width:100%;
-          height:1.3em;
+          height:100%;
+          @font-14;
       }
 
       .searchbar::placeholder
       {
           color: #3a4553;
-          font-size: 1em;
+          @font-13;
           font-weight: bold;
-          /* transition: 0.2s; */
       }
 
       .searchbar:focus
       {
-          font-size: 1em;
+          @font-13;
           font-weight: bold;
           transition: 0.3s;
-          /* Stops the input box from inheriting the styling from the inputs on the request form */
           outline: none;
       }
-
 
 
       .account
@@ -95,6 +85,7 @@
         flex-direction: row;
         border-left:1px solid #384352;
       }
+
       .authorAvatar
       {
         display:flex;
@@ -111,7 +102,6 @@
         float:right;
         box-shadow: 0 0 0.625em #ff0100;
       }
-
 
       .authorName
       {
@@ -134,7 +124,6 @@
       {
         color:#c9d3da;
       }
-
 
     }
 </style>

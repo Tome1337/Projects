@@ -68,15 +68,7 @@ module.exports = class Grabber
             }
         }
 
-        let response = await Request( method, url, data, options );
-
-        try{ return JSON.parse( response )}catch( e ){}
-        if( response.trim().startsWith('<') )
-        {
-            try{ return cheerio.load( response )}catch( e ){ console.log( e )}
-        }
-
-        return response;
+        return await Request( method, url, data, options );
     }
 
     get( url, data, options = {})

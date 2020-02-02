@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65327b14-a507-4ca6-b86c-b23fdb2de82a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js" beforeDir="false" afterPath="$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/filmview-grabber/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="215">
@@ -27,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1515">
-              <caret line="101" column="14" lean-forward="true" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
+            <state relative-caret-position="810">
+              <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -52,6 +51,7 @@
       <find>id</find>
       <find>h2</find>
       <find>console</find>
+      <find>paren</find>
     </findStrings>
     <replaceStrings>
       <replace>Grabber</replace>
@@ -90,9 +90,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
     <option name="y" value="23" />
-    <option name="width" value="1322" />
+    <option name="width" value="930" />
     <option name="height" value="872" />
   </component>
   <component name="ProjectId" id="1X9YZd3PxsoHUuPoeVBPzUUFw2P" />
@@ -104,7 +103,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,10 +121,16 @@
               <item name="filmview-grabber" type="462c0819:PsiDirectoryNode" />
               <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Movie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Movie" type="462c0819:PsiDirectoryNode" />
+              <item name="filmview-site" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -177,26 +181,27 @@
       <workItem from="1580491602144" duration="6403000" />
       <workItem from="1580548676851" duration="4601000" />
       <workItem from="1580565222146" duration="4986000" />
+      <workItem from="1580648442076" duration="14243000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15990000" />
+    <option name="totallyTimeSpent" value="30233000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="23" width="1322" height="872" extended-state="0" />
+    <frame x="0" y="23" width="930" height="872" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.2570342" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.25703126" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.27564102" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.34102565" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32948717" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32948717" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
@@ -211,8 +216,19 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js</url>
+          <line>119</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/config.json" />
     <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/config.json" />
     <entry file="file://$PROJECT_DIR$/filmview-grabber/helpers/operations.js" />
     <entry file="file://$PROJECT_DIR$/filmview-grabber/helpers/random.js" />
@@ -418,13 +434,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/filmview-grabber/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/filmview-grabber/helpers/grabber.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -432,10 +441,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/filmview-grabber/node_modules/css-what/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="225" column="34" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="14" lean-forward="true" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
+        <state relative-caret-position="810">
+          <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filmview-grabber/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
         </state>
       </provider>
     </entry>

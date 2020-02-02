@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="65327b14-a507-4ca6-b86c-b23fdb2de82a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmview-grabber/config/database/credentials 2.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js" beforeDir="false" afterPath="$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmview-grabber/config/database/models/model 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmview-grabber/helpers/grabber.js" beforeDir="false" afterPath="$PROJECT_DIR$/filmview-grabber/helpers/grabber.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmview-grabber/main 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmview-grabber/package 2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmview-site/templates/app/components/header.template" beforeDir="false" afterPath="$PROJECT_DIR$/filmview-site/templates/app/components/header.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmview-site/templates/main.style" beforeDir="false" afterPath="$PROJECT_DIR$/filmview-site/templates/main.style" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package 2.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +21,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/filmview-grabber/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="215">
               <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
             </state>
           </provider>
@@ -38,17 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/filmview-grabber/helpers/grabber.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="63" column="61" lean-forward="true" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+            <state relative-caret-position="1515">
+              <caret line="101" column="14" lean-forward="true" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -107,9 +90,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="25" />
+    <option name="x" value="65" />
     <option name="y" value="23" />
-    <option name="width" value="1357" />
+    <option name="width" value="1322" />
     <option name="height" value="872" />
   </component>
   <component name="ProjectId" id="1X9YZd3PxsoHUuPoeVBPzUUFw2P" />
@@ -192,21 +175,22 @@
       <workItem from="1580469859182" duration="330000" />
       <workItem from="1580472240723" duration="111000" />
       <workItem from="1580491602144" duration="6403000" />
-      <workItem from="1580548676851" duration="3967000" />
+      <workItem from="1580548676851" duration="4601000" />
+      <workItem from="1580565222146" duration="4986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10370000" />
+    <option name="totallyTimeSpent" value="15990000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="25" y="23" width="1357" height="872" extended-state="0" />
+    <frame x="65" y="23" width="1322" height="872" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25323194" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.2570342" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.4782051" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.27564102" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32948717" />
@@ -361,13 +345,6 @@
         <state relative-caret-position="-157" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logger/logger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -424,15 +401,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/filmview-grabber/main 2.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/filmview-grabber/package 2.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/model 2.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/filmview-grabber/main 2.js" />
+    <entry file="file://$PROJECT_DIR$/filmview-grabber/package 2.json" />
+    <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/model 2.js" />
     <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/credentials.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -440,24 +411,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/run.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/filmview-grabber/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="215">
           <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/filmview-grabber/helpers/grabber.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
+        <state relative-caret-position="945">
           <caret line="63" column="61" lean-forward="true" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/filmview-grabber/config/database/models/grabber/grabber.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+        <state relative-caret-position="1515">
+          <caret line="101" column="14" lean-forward="true" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
         </state>
       </provider>
     </entry>

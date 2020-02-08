@@ -1,6 +1,10 @@
 <style require="/templates/main.style">
     header
     {
+        z-index: 999;
+        position: absolute;
+        top: 0;
+        width: 100%;
       .header
       {
         width:90%;

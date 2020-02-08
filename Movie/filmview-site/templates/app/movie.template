@@ -1,1 +1,73 @@
-<h1>Movie</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Movie</title>
+        <style require="/templates/main.style"></style>
+        <style require="/templates/movie.style"></style>
+        <script src="/data/dom.js" instance></script>
+    </head>
+    <body itemscope itemtype="https://schema.org/WebPage">
+    <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
+    <meta itemprop="accessibilityControl" content="fullMouseControl" />
+    <meta itemprop="accessibilityHazard" content="noFlashingHazard" />
+    <meta itemprop="accessibilityHazard" content="noMotionSimulationHazard" />
+    <meta itemprop="accessibilityHazard" content="noSoundHazard" />
+    <meta itemprop="accessibilityAPI" content="ARIA" />
+    <Header />
+    <main>
+      <div class="hero-container">
+        <div class="info-container">
+          <span class="movie-title">
+            <h1 class="film-name">Stranger Things</h1>
+          </span>
+          <div class="movie-meta">
+            <span class="">2016</span>
+            <span class="maturity-number">16+</span>
+            <span class="">Filmy</span>
+            <span class="">Sci-fi</span>
+          </div>
+          <div class="movie-text">
+            <span>Chlapec se ztratí neznámo kde a město začne odhalovat svoje záhady, mezi které patří i tajné experimenty, děsivě nadpřirozené síly a jedna malá podivná holka.</span>
+          </div>
+          <div class="movie-actors">
+            <span class="actors-text"><span class="actor-pretext">Hrají:</span>Winona Ryder,David Harbour,Finn Wolfhard</span>
+          </div>
+          <div class="movie-scenario">
+            <span class="actors-text"><span class="actor-pretext">Scénář:</span>The Duffer Brothers</span>
+          </div>
+        </div>
+        <div class="video-container">
+          <button class="additional-video">
+              <span class="additional-video-image-wrapper" style="background-image:url(https://occ-0-1489-1490.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABWHTwhvSmED5XUxCdUgLtsI3dtMLcOE7Dd-5ACp84b5l0rEmIaipeQmrX_5eXmDNJFojasiuBHSFVmf1TTdgJLxlCSyhisAiqgYLsJIzVyz3uh8x.jpg?r=443)">
+              <svg viewBox="0 0 50 50" class="additional-video-play-icon">
+                <g fill="none" fill-rule="nonzero"><path fill="#fff" d="M25 50C11.2 50 0 38.8 0 25S11.2 0 25 0s25 11.2 25 25-11.2 25-25 25z" class="base"></path><path fill="#000" d="M35.3 25l-15.6-8.6v17.2z" class="triangle"></path></g></svg></span><span class="additional-video-title" >
+                </span></button>
+
+        </div>
+      </div>
+      <section class="additional-videos">
+      <h1 id="myList">Trending Now</h1>
+        <div class="box">
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true" alt="" /></a>
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t2.PNG?raw=true" alt="" /></a>
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t3.PNG?raw=true" alt="" /></a>
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t4.PNG?raw=true" alt="" /></a>
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t5.PNG?raw=true" alt="" /></a>
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t6.PNG?raw=true" alt="" /></a>
+        </div>
+          </section>
+
+
+
+
+
+
+
+</main>
+
+
+    <Footer />
+    </body>
+</html>

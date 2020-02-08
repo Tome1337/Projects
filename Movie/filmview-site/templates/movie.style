@@ -1,8 +1,8 @@
 .hero-container{
-  width:100%;
-  display:flex;
-  margin:0 auto;
-  padding-top:80px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
 }
 
 .info-container{
@@ -16,7 +16,25 @@
 }
 
 .video-container{
-display: flex;
+    display: flex;
+    width: 65%;
+    position: relative;
+    box-shadow: 16px 0px 12px rgba(0,0,0,0.2);
+    &:before
+     {
+         content: '';
+         position: absolute;
+         z-index: 10;
+         background-image: -webkit-gradient(linear, left top, right top, from(#253240), to(transparent));
+         background-image: -webkit-linear-gradient(left, #253240, transparent);
+         background-image: -moz- oldlinear-gradient(left, #253240, transparent);
+         background-image: -o-linear-gradient(left, #253240, transparent);
+         background-image: linear-gradient(to right, #253240, transparent);
+         top: 0;
+         bottom: 0;
+         left: 0%;
+         width: 275px;
+     }
 }
 
 .maturity-number{
@@ -37,9 +55,9 @@ h1.film-name{
 .additional-video{
 position: relative;
 padding: 0px;
-margin: 2px;
 background: none;
 border: none;
+width: 100%;
 text-align: left;
 overflow: hidden;
 }
@@ -76,8 +94,10 @@ overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 620px;
-    height: 350px;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-top: 56.25%;
 }
 
 .additional-video-play-icon {

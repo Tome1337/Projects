@@ -7,6 +7,17 @@
         <style require="/templates/main.style"></style>
         <style require="/templates/movie.style"></style>
         <script src="/data/dom.js" instance></script>
+        <style>
+            main
+            {
+                width: 85%;
+                margin: 0 auto;
+                margin-top: 96px!important;
+                background: #1b2634;
+                padding-top: 0!important;
+                box-shadow: 0px 0px 16px rgba(0,0,0,0.4);
+            }
+        </style>
     </head>
     <body itemscope itemtype="https://schema.org/WebPage">
     <meta itemprop="accessibilityControl" content="fullKeyboardControl" />

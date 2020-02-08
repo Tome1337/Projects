@@ -12,24 +12,24 @@
   width: 35%;
   min-width: 500px;
   max-width: 800px;
-  padding: 16px 32px 64px 0;
+    padding: 0 var(--padding-5);
+    padding-right: 0;
 }
 
 .video-container{
     display: flex;
     width: 65%;
     position: relative;
-    box-shadow: 16px 0px 12px rgba(0,0,0,0.2);
     &:before
      {
          content: '';
          position: absolute;
          z-index: 10;
-         background-image: -webkit-gradient(linear, left top, right top, from(#253240), to(transparent));
-         background-image: -webkit-linear-gradient(left, #253240, transparent);
-         background-image: -moz- oldlinear-gradient(left, #253240, transparent);
-         background-image: -o-linear-gradient(left, #253240, transparent);
-         background-image: linear-gradient(to right, #253240, transparent);
+         background-image: -webkit-gradient(linear, left top, right top, from(#1b2634), to(transparent));
+         background-image: -webkit-linear-gradient(left, #1b2634, transparent);
+         background-image: -moz- oldlinear-gradient(left, #1b2634, transparent);
+         background-image: -o-linear-gradient(left, #1b2634, transparent);
+         background-image: linear-gradient(to right, #1b2634, transparent);
          top: 0;
          bottom: 0;
          left: 0%;

@@ -50,12 +50,10 @@
           </div>
         </div>
         <div class="video-container">
-          <button class="additional-video">
-              <span class="additional-video-image-wrapper" style="background-image:url(https://occ-0-1489-1490.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABWHTwhvSmED5XUxCdUgLtsI3dtMLcOE7Dd-5ACp84b5l0rEmIaipeQmrX_5eXmDNJFojasiuBHSFVmf1TTdgJLxlCSyhisAiqgYLsJIzVyz3uh8x.jpg?r=443)">
-              <svg viewBox="0 0 50 50" class="additional-video-play-icon">
-                <g fill="none" fill-rule="nonzero"><path fill="#fff" d="M25 50C11.2 50 0 38.8 0 25S11.2 0 25 0s25 11.2 25 25-11.2 25-25 25z" class="base"></path><path fill="#000" d="M35.3 25l-15.6-8.6v17.2z" class="triangle"></path></g></svg></span><span class="additional-video-title" >
-                </span></button>
-
+          <video width="100%" controls>
+              <source src="https://video.csfd.cz/files/videos/157/716/157716367/160907376_26c99b.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+          </video>
         </div>
       </div>
       <section class="additional-videos">

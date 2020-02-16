@@ -69,14 +69,11 @@ const Scrape = module.exports = class Scrape extends Model
             {
                 title       : '',
                 description : '',
-                interesings : []
-
             },
             cz:
             {
                 title       : '',
                 description : '',
-                interesings : []
             },
             //USERS
             directors   : [],
@@ -96,8 +93,8 @@ const Scrape = module.exports = class Scrape extends Model
             genres      : [],
             release     : '',
             runtime     : '',
-            country     : '',
-            language    : '',
+            country     : [],
+            language    : [],
             budget      : '',
             profit      : '',
             csfd:
@@ -112,7 +109,8 @@ const Scrape = module.exports = class Scrape extends Model
             },
             metacritics:
             {
-                rate    : ''
+                rate    : '',
+                reviews : { total: 0, list: [], url: '' }
             }
         };
 
@@ -130,8 +128,6 @@ const Scrape = module.exports = class Scrape extends Model
         //LOCALIZED
         movie.cz.title        = $('#main h1').text().trim();
         movie.cz.description  = $('#plots ul').children().last().text().trim();
-
-        movie.sk.title        = $('#main ul.names li img[title="Slovensko"]').next().text().trim();
 
         let nodeMap =
         {
@@ -171,33 +167,31 @@ const Scrape = module.exports = class Scrape extends Model
             return (
                 {
                     uid  : $( el ).find('a').attr('href').match(/(\d+)/)[1],
-                    name : $( el ).find('a').attr('href').text().trim()
+                    name : $( el ).find('a').text().trim()
                 })
         } ).get();
 
         //RATE SITES
         movie.csfd.rate             = $('#sidebar h2.average').text().trim();
-        movie.csfd.reviews.total    = $('#main div.content.comments').prev().text().trim().match(/\d+/)[0];
+        movie.csfd.reviews.total    = $('#main div.content.comments').prev().find('h2 a').text().trim().replace( /\D+/g, '');
+        movie.csfd.reviews.url      = 'https://www.csfd.cz' + url + 'komentare/'
         movie.csfd.reviews.list     = $('#main div.content.comments ul li').map( ( i, el ) =>
         {
             return (
             {
                 author          : $( el ).find('h5.author').text().trim(),
-                rating          : $( el ).find('img.rating').attr('alt').trim().length,
+                rating          : $( el ).find('img.rating').attr('alt') ? $( el ).find('img.rating').attr('alt').trim().length : 0,
                 datePublished   : $( el ).find('p.post span.date.desc').text().replace(/[()]/g, '').trim(),
                 reviewBody      : $( el ).find('p.post').text().trim().replace(/\([0-9].*[0-9]\)/g, '')
             })
         }).get();
 
+        let imdb = $('img.imdb').parent().attr('href');
+        if( imdb ) { await this.fetchImdb( imdb.replace('combined', 'reference'), movie ) }
+
         //TODO INTERESTINGS
 
-        let imdb = $('img.imdb').parent().attr('href');
-
-        if( imdb ) { console.log('idem na imbdb'); await this.fetchImdb( imdb.replace('combined', 'reference'), movie ) }
-
         console.log(movie)
-
-        process.exit();
     }
 
     async fetchImdb( url, movie )
@@ -213,13 +207,39 @@ const Scrape = module.exports = class Scrape extends Model
 
         let $ = cheerio.load( data );
 
-        movie.release  = parseInt($('#main span.titlereference-title-year a').text().trim());
-        movie.runtime  = parseInt($('section.titlereference-section-additional-details table tr').eq(1).find('li').text().trim());
-        movie.country  = $('section.titlereference-section-additional-details table tr').eq(3).find('li').text().trim();
-        movie.language = $('section.titlereference-section-additional-details table tr').eq(4).find('li').text().trim();
-        movie.budget   = $('section.titlereference-section-box-office table tr').eq(0).find('td').eq(1).text().trim().substring(1).replace(/,/g, '.');
-        movie.profit   = $('section.titlereference-section-box-office table tr').eq(2).find('td').eq(1).text().trim().substring(1).replace(/,/g, '.');
+        //LOCALIZED
+        movie.sk.title = $('#main h3').text().split(/\n/)[1].trim();
 
+        $('section.titlereference-section-additional-details table tr').map( ( i, el ) =>
+        {
+            if( $(el).find('td').first().text().trim() === 'Runtime' )
+            {
+                movie.runtime = $(el).find('ul li').text().trim();
+            }
+            if( $(el).find('td').first().text().trim() === 'Country' )
+            {
+                movie.country = $(el).find('ul li a').map( ( i, el) => $(el).text().trim() ).get();
+            }
+            if( $(el).find('td').first().text().trim() === 'Language' )
+            {
+                movie.language = $(el).find('ul li a').map( ( i, el) => $(el).text().trim() ).get();
+            }
+        });
+
+        $('section.titlereference-section-box-office table tr').map( ( i, el ) =>
+        {
+            if( $(el).find('td').first().text().trim() === 'Budget' )
+            {
+                movie.budget = $(el).find('td').eq(1).text().trim().substring(1).replace(/,/g, '.');
+            }
+            if( $(el).find('td').first().text().trim() === 'Cumulative Worldwide Gross' )
+            {
+                movie.profit = $(el).find('td').eq(1).text().trim().substring(1).replace(/,/g, '.');
+            }
+        });
+
+
+        movie.release  = $('#main span.titlereference-title-year a').text().trim();
         movie.imdb.rate   = parseFloat( $('#main span.ipl-rating-star__rating').text().trim().replace(/,/g, '.') );
 
         data = await Grabber.get( url.replace('reference', 'reviews'),
@@ -277,12 +297,58 @@ const Scrape = module.exports = class Scrape extends Model
 
         $ = cheerio.load( data );
 
-        movie.gallery = $('#media_index_content #media_index_thumbnail_grid a').map( ( i, el ) => $(el).find('img').attr('src').trim().replace(/V1.*.jpg/g, 'V1.jpg') ).get();
+        movie.gallery = $('#media_index_content #media_index_thumbnail_grid a').map( ( i, el ) =>
+        {
+            if( $(el).find('img') && $(el).find('img').attr('src') )
+            {
+                return $(el).find('img').attr('src').trim().replace(/V1.*.jpg/g, 'V1.jpg')
+            }
+        } ).get().filter( f => f.length );
+
+        data = await Grabber.get( url.replace('reference', ''),
+            {
+                headers:
+                    {
+                        'Accept-Language'   : 'sk-SK',
+                        'Referer'           : 'https://www.imdb.com/'
+                    }
+            });
+
+        $ = cheerio.load( data );
+
+        if($('#main_top .titleReviewBarItem a'))
+        {
+            movie.metacritics.rate = $('#main_top .titleReviewBarItem .metacriticScore span').text().trim();
+            data = await Grabber.get( url.replace('reference', $('#main_top .titleReviewBarItem a').attr('href')),
+                {
+                    headers:
+                        {
+                            'Accept-Language'   : 'sk-SK',
+                            'Referer'           : 'https://www.imdb.com/'
+                        }
+                });
+
+            $ = cheerio.load( data );
+
+            movie.metacritics.reviews.list = $('#main table.crits_results tr').map( ( i, el ) =>
+            {
+                return (
+                    {
+                        author          : $( el ).find('span[itemprop="author"]').text().trim() || $( el ).find('span[itemprop="name"]').text().trim(),
+                        rating          : $( el ).find('span[itemprop="ratingValue"]').text().trim(),
+                        reviewBody      : $( el ).find('div[itemprop="reviewbody"]').text().trim()
+                    })
+            }).get().filter( f => f.author && f.rating && f.reviewBody );
+
+            movie.metacritics.reviews.total = $('#main div.metascore_block span[itemprop="ratingCount"]').text().trim();
+            movie.metacritics.reviews.url = $('#main div.see-more a').attr('href');
+        }
     }
 
     async start()
     {
-        //return await this.fetchImdb( 'https://www.imdb.com/title/tt0109830/reference' );
+        //return await this.fetchImdb( 'https://www.imdb.com/title/tt0109830/reference', movie );
         return await this.csfdList( Math.floor(Math.random() * 20) + 1 );
+        //return await this.getMovie( '/film/8587-byl-jednou-jeden-polda/' );
     }
 };
